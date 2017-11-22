@@ -4,12 +4,18 @@ $(function() {
    
 
     // 在ajax开启请求之前，让进度条显示
-    $(window).ajaxStart(function(){
-        // console.log(111);
-        // 开启进度条
+    // $(window).ajaxStart(function(){
+    //     // console.log(111);
+    //    
+    // 开启进度条
+    // NProgress.start();
+    // });
+
+    $(document).ajaxStart(function () {
+        // console.log("ajaxStart在开始一个ajax请求时触发");
+         // 开启进度条
         NProgress.start();
     });
-
     // 在ajax关闭请求之后，让进度条关闭
     $(window).ajaxStart(function(){
         // console.log(222);

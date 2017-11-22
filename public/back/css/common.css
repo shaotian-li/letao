@@ -24,6 +24,15 @@ html,
 body{
     height: 100%;
 }
+
+.table.table-bordered th{
+    text-align: center;
+}
+.table.table-bordered  td{
+    text-align: center;
+    vertical-align: middle;
+}
+
 /* 侧边栏 */
 .lt_aside{
     width: 180px;
@@ -96,7 +105,8 @@ body{
     width: 100%;
     height: 100%;
     padding-left:180px; 
-   transition:all 1s;
+    transition:all 1s;
+   
 }
 
 .lt_section.now{
@@ -115,12 +125,14 @@ body{
   color: #fff;
 }
 
-
+.lt_content{
+    padding: 0px 15px;
+}
 
 /* 主页内容 */
 .pic_left,
 .pic_right{
     height: 400px;
     /* background-color: pink; */
-    width: 45%;
+    width: 45%;  
 }

@@ -23,6 +23,7 @@ $form.bootstrapValidator({
                 notEmpty:{
                     message: "用户名不能为空"
                 },
+                // 长度校验
                 stringLength:{
                     min:4,
                     max:10,
@@ -30,6 +31,11 @@ $form.bootstrapValidator({
                 },
                 callback:{
                     message:"用户名不存在"
+                },
+                // 正则校验
+                regexp:{
+                    regexp:/^[a-zA-Z0-9_\.]+$/,
+                    message:"用户名输入不规范"
                 }
             }
         },
@@ -45,6 +51,10 @@ $form.bootstrapValidator({
                 },
                 callback:{
                     message:"密码输出错误"
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                    message: "密码输入不规范"
                 }
             }
         }
