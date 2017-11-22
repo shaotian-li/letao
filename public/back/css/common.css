@@ -20,6 +20,9 @@ a:focus {
     text-align: center;
 }
 
+.mb_20{
+    margin-bottom: 20px;
+}
 html,
 body{
     height: 100%;
@@ -135,4 +138,25 @@ body{
     height: 400px;
     /* background-color: pink; */
     width: 45%;  
+}
+
+
+/* 图片 */
+.img_box{
+    width: 82px;
+    height: 34px;
+    position: relative;
+}
+    .img_box:hover button {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color:#adadad;
+}
+.img_box .img_add{
+    width: 82px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity:0;
 }

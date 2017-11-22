@@ -22,11 +22,12 @@ $(function(){
                     currentPage:currentPage,
                     totalPages:Math.ceil(info.total /pageSize),
                     // totalPages:10
-                    onPageChlicked(a,b,c,page){
+                    onPageClicked:function(a,b,c,page){
                         currentPage = page;
                         reader();
                     }
                 })
+                
             }
         });   
     }
@@ -34,5 +35,32 @@ $(function(){
     // 启动禁用功能
     $("tbody").on("click",".btn",function(){
         $("#userModal").modal("show");
+
+        // 获取id
+        var id = $(this).parent().data("id");
+
+        var isDelete = $(this).hasClass("btn-danger")?0:1; 
+
+        // 给确定按钮注册一个点击事件
+        $(".btn_user").off().on("click",function(){
+            
+            // 发送ajax请求
+            $.ajax({
+                type:"post",
+                url:"/user/updateUser",
+                data:{
+                    id:id,
+                    isDelete:isDelete
+                },
+                success:function(data){
+                    // console.log(data);
+                    if (data.success==true){
+                        $("#userModal").modal("hide");
+                        reader();
+                    }
+                }
+            });
+        })
     })
 });
+
