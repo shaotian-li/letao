@@ -12,7 +12,7 @@ $(function(){
                pageSize: pageSize
            },
            success: function (data) {
-               console.log(data);
+            //    console.log(data);
                // if()
                var html = template("secondTpl", data);
                $("tbody").html(html);
@@ -46,7 +46,7 @@ $(function(){
             pageSize:999
         },
         success:function(data){
-            console.log(data);
+            // console.log(data);
 
             $(".dropdown-menu").html(template("secondtpl2",data));
         }
@@ -73,8 +73,9 @@ $(function(){
        dataType:"json",//指定响应的格式
        done:function(e,data){
         //    通过data.result.picAddr可以获取到图片上传后的路径
-           console.log(data);
-           console.log(data.result.picAddr);
+
+        //    console.log(data);
+        //    console.log(data.result.picAddr);
 
         //    设置给 img_second_box中img的src属性
            $(".img_second_box img").attr("src",data.result.picAddr);
@@ -90,6 +91,7 @@ $(function(){
 //    表单校验
     var $form = $("form");
     $form.bootstrapValidator({
+        excluded:[],
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
@@ -117,14 +119,15 @@ $(function(){
                         message: "请上传品牌图片"
                     }
                 }
-            }
+            }    
         }
     });
 
-
+  
     // 给表单注册校验成功事件
     $form.on("success.form.bv",function(e){
         e.preventDefault();
+        console.log($form.serialize());
         // 使用ajax提交逻辑
         $.ajax({
             type:"post",
@@ -132,6 +135,23 @@ $(function(){
             data:$form.serialize(),
             success:function(info){
                 console.log(info);
+                if (info.success) {
+                    $("#secondAddModal").modal("hide");
+
+                    // 重新渲染第一页
+                    currentPage = 1;
+                    render();
+
+                    // 清空内容和样式
+                    $form[0].reset();
+                    $form.data("bootstrapValidator").resetForm();
+
+                    // 重置下拉框组件和图片
+                    $(".dropdown_text").text("请选择一级分类");
+                    $(".img_second_box img").attr("src","./images/none.png");
+                    $("[name='categoryId']").val("");
+                    $('[name="brandLogo"]').val("");
+                }
             }
         });
     })
