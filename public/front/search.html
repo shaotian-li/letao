@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
     <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/bars.css">
+    <link rel="stylesheet" href="./css/search.css">
 </head>
 <body>
 
@@ -26,65 +26,56 @@
     </div>
     <!--内容-->
     <div class="lt_content">
-            <!--侧边栏-->
-            <div class="lt_bars_l">
-                <div class="mui-scroll-wrapper">
-                    <ul class="mui-scroll lt_cateLeft">
+        <!--搜索框-->
+            <input type="text" placeholder="请输入搜索关键词" class="lt_search">
+            <button class="mui-btn mui-btn-blue search-btn">搜索</button>
 
-                    <!--挖个坑-->
-                    </ul>
-                </div>
-            </div>
-            <!--内容区域-->
-            <div class="lt_bars_r">
-                <div class="mui-scroll-wrapper">
-                    <ul class="mui-scroll lt_cateRight">
-                        <!--这里放置真实显示的DOM内容-->
+        <!--内容-->
+        <div class="lt_history">
 
-                    <!--挖个坑-->
-                    </ul>
-                </div>
-            </div>
+
         </div>
+
+    </div>
 
     <!--底部-->
     <div class="lt_footer">
         <ul class="mui-clearfix">
             <li><a href="index.html"><i class="fa fa-home"></i><p>首页</p></a></li>
-            <li class="now" ><a href="bars.html"><i class="fa fa-bars"></i><p>分类</p></a></li>
+            <li><a href="bars.html"><i class="fa fa-bars"></i><p>分类</p></a></li>
             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i><p>购物车</p></a></li>
             <li><a href="user.html"><i class="fa fa-user"></i><p>会员中心</p></a></li>
         </ul>
     </div>
 </div>
 
-<script type="text/html" id="barsTpl">
+<script type="text/html" id="tpl">
 
-    {{each rows v i}}
-    <li data-id="{{v.id}}" class="{{i==0?'now':''}}"><a href="#">{{v.categoryName}}</a></li>
-    {{/each}}
-</script>
-
-<script type="text/html" id="barsTpl2">
-
-    {{if rows.length == 0}}
-    <p class="bars_product">该分类下没有更多的品牌</p>
+    {{if arr.length ==0}}
+    <p>没有可查询记录</p>
     {{/if}}
 
-    {{each rows v i}}
-    <li>
-        <a href="#">
-            <img src="{{v.brandLogo}}" alt="">
-            <p>{{v.barsTpl2}}</p>
-        </a>
-    </li>
-    {{/each}}
+    {{if arr.length > 0}}
+    <div class="mui-clearfix search_history">
+        <span class="mui-pull-left ">搜索历史</span>
+        <span class="mui-pull-right fa fa-trash lt_empty">清空记录</span>
+    </div>
+    <ul class="clear_history">
+        {{each arr v i}}
+        <li class="mui-clearfix">
+            <a href="searchList.html?key={{v}}" class="mui-pull-left">{{v}}</a>
+            <span data-index="{{i}}" class="mui-pull-right mui-icon mui-icon-closeempty lt_delete"></span>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
 </script>
+
 
 <script src="./lib/mui/js/mui.min.js"></script>
 <script src="./lib/zepto/zepto.min.js"></script>
 <script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/bars.js"></script>
+<script src="./js/search.js"></script>
 </body>
 </html>
