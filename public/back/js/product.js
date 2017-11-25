@@ -187,16 +187,22 @@ $(function(){
 
          var param = $("form").serialize();
 
-         param += "&picName" +imgs[0].picName + "&picAddr" +imgs[0].picAddr;
-         param += "&picName" +imgs[1].picName + "&picAddr" +imgs[1].picAddr;
-         param += "&picName" +imgs[2].picName + "&picAddr" +imgs[2].picAddr;
+         param += "&picName1" +imgs[0].picName + "&picAddr1" +imgs[0].picAddr;
+         param += "&picName2" +imgs[1].picName + "&picAddr2" +imgs[1].picAddr;
+         param += "&picName3" +imgs[2].picName + "&picAddr3" +imgs[2].picAddr;
+
+         //param += "&picName1="+imgs[0].picName + "&picAddr1=" + imgs[0].picAddr;
+         //param += "&picName2="+imgs[1].picName + "&picAddr2=" + imgs[1].picAddr;
+         //param += "&picName3="+imgs[2].picName + "&picAddr3=" + imgs[2].picAddr;
          //使用ajax提交逻辑
          $.ajax({
              type:"post",
              url:"/product/addProduct",
              data:param,
              success:function(data){
+                 console.log(data);
                  if(data.success){
+
                      $("#productAddModal").modal("hide");
                      //重新渲染第一页
                      currentPage =1;
