@@ -23,6 +23,25 @@ $(function(){
                    bootstrapMajorVersion: 3,
                    currentPage: currentPage,
                    totalPages: Math.ceil(data.total / pageSize),
+                   itemTexts:function(type,page,current){
+                       //console.log(type);
+                       switch (type){
+                           case "first":
+                               return "首页";
+                           case "prev":
+                               return "上一页";
+                           case "next":
+                               return "下一页";
+                           case "last":
+                               return "尾页";
+                           case "page":
+                               return page;
+                       }
+
+                   },
+                   tooltipTitles:function(type,page,current){
+
+                   },
                    onPageClicked: function (a, b, c, page) {
                        currentPage = page;
                         render();

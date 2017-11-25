@@ -22,6 +22,25 @@ $(function () {
                     currentPage:currentPage,
                     totalPages:Math.ceil(info.total / pageSize),
                     numberOfPages:5,
+                    itemTexts:function(type,page,current){
+                        //console.log(type);
+                        switch (type){
+                            case "first":
+                                return "首页";
+                            case "prev":
+                                return "上一页";
+                            case "next":
+                                return "下一页";
+                            case "last":
+                                return "尾页";
+                            case "page":
+                                return page;
+                        }
+
+                    },
+                    tooltipTitles:function(type,page,current){
+
+                    },
                     onPageClicked:function(a,b,c,page){
                         currentPage = page;
                         render();

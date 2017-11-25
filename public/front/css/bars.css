@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/*侧边栏*/
+
+.lt_bars_l{
+    width: 90px;
+    height: 100%;
+    /*background-color: yellow;*/
+    float: left;
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.lt_bars_l a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #f3f4f5;
+   
+}
+.lt_bars_l li.now a{
+    border-right:none;
+    background-color: #fff;
+}
+.lt_bars_r{
+    height: 100%;
+    /*background-color: pink;*/
+    overflow: hidden;
+    position: relative;
+}
+
+.lt_bars_r a{
+    display: block;
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+.lt_bars_r img{
+    display: block;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+}
