@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.lt_go_cart{
+    padding: 10px;
+    width: 100%;
+    height: 55px;
+    border-top: 1px solid #ccc;
+}
+
+
+
+/*描述*/
+.lt_describe{
+    padding: 10px;
+    font-weight: 700;
+    border-top: 1px solid #ccc;
+}
+/*价格*/
+.lt_cost{
+    padding: 10px;
+    border-top:1px solid #ccc;
+    height: 45px;
+
+}
+.lt_cost .lt_cost_show{
+    color: red;
+}
+
+.lt_cost .lt_cost_old{
+    font-size: 12px;
+    text-decoration: line-through;
+}
+/*尺码*/
+.lt_size{
+    padding: 10px;
+    border-top:1px solid #ccc;
+}
+.lt_size span{
+    border:1px solid #ccc;
+    font-size: 12px;
+    padding: 5px;
+    line-height: 36px;
+    background-color: #f5f5f5;
+}
+.lt_size span.now{
+    background-color: #069;
+}
+/*数量*/
+.lt_amount{
+    padding: 10px;
+    border-top:1px solid #ccc;
+}
+.lt_amount span{
+    font-size: 12px;
+    color: #666;
+}
+
+/*详情*/
+.lt_details{
+    padding: 10px;
+    border-top: 1px solid #ccc;
+
+}

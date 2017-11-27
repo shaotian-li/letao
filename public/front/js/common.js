@@ -6,6 +6,11 @@ mui('.mui-scroll-wrapper').scroll({
     indicators: false,//不显示滚动条
 });
 
+var gallery = mui('.mui-slider');
+gallery.slider({
+    interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
+});
+
 
 //function getSearchObj(){
 ////    获取地址栏参数，封装成一个对象  {name:"zs", age:18, desc:"呵呵呵"}

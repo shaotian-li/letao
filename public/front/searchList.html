@@ -19,7 +19,7 @@
             <a href="javascript:history.back(-1);" class="lt_l">
                 <span class="fa fa-home"></span>
             </a>
-            <h4>乐淘云购</h4>
+            <h4>商品首页</h4>
             <a href="search.html" class="lt_r">
                 <span class="fa fa-search"></span>
             </a>
@@ -70,8 +70,12 @@
 
 
     <script type="text/html" id="tpl">
+        {{if data.length === 0}}
+        <p>没有更多的商品信息</p>
+        {{/if}}
+
         {{each data v i}}
-        <a href="#" class="item">
+        <a href="product.html?productId={{v.id}}" class="item">
             <img src="{{v.pic[0].picAddr}}" alt="">
             <span class="proName mui-ellipsis-2">{{v.proName}}</span>
             <p>
